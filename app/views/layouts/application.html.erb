@@ -11,6 +11,35 @@
   </head>
 
   <body>
+    <header>
+      <div class="left-header">
+        <%= link_to image_tag("logo.png"), "/" %>
+        <%= form_with url: rooms_path, method: :get, local: true do |f| %>
+          <%= f.text_field: search %>
+          <%= f.text_field: search %>
+        <% end %>
+      </div>
+      <div class="right-header">
+        <p></p>
+        <details>
+          <summary><%= image_tag("logo.png") %></summary>
+            <li>ルーム登録</li>
+            <li>予約済ルーム一覧</li>
+            <li>登録済ルーム一覧</li>
+            <li>設定</li>
+            <li>ログアウト</li>
+        </details>
+      </div>
+    </header>
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
+    <footer>
+      <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>
