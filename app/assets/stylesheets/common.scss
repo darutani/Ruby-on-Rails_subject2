@@ -1,26 +1,160 @@
-body {
+// 共通
+
+p {
   margin: 0;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-summary {
-  list-style: none;
 }
 
 li {
   list-style: none;  
 }
 
-.cover_top {
+.btn-primary {
+  background-color: #4a90e2 !important;
+}
+
+
+// header
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  padding: 4px 30px;
+}
+
+.left-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-form {
+  display: flex;
+}
+
+.header-search {
+  position: relative;
+  margin-right: 4px;
+}
+
+.left-header .form-control {
+  width: 180px;
+  display: inline-block;
+  position: relative;
+  border-radius: 2px;
+  padding-left: 30px;
+}
+
+.fa-location-dot {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  font-size: 18px;
+}
+
+.fa-magnifying-glass {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  font-size: 18px;
+}
+
+header input[type="submit"] {
+  display: none;
+}
+
+.right-header p {
+  margin-bottom: 0;
+}
+
+.nav-image {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 16px;
+}
+
+.nav-trigger {
+  background: #ffffff;
+  display: none;
+  position: absolute;
+  top: 75px;
+  right: 10px;
+  padding: 20px 30px;
+  margin: 0;
+}
+
+.nav-trigger li + li {
+  margin-top: 15px;
+}
+
+.nav-trigger a {
+  text-decoration: none;
+  color: black;
+}
+
+.style {
+  display: block;
+}
+
+.notice {
+  margin: 0;
+  text-align: center;
+  background-color: #ADD8E6;
+  color: #ffffff;
+}
+
+.alert {
+  margin: 0;
+  text-align: center;
+  background-color: #ADD8E6;
+  color: #ffffff;
+}
+
+
+// top画面
+
+.cover-top {
   background-image: image-url('cover_top.jpeg');
   background-size: cover;
   height: 650px;
   width: 100%;
 }
+
+.reccomend-area {
+  padding: 40px 0 70px 0;
+}
+
+.reccomend-area h4 {
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.search-card {
+  position: relative;
+}
+
+.search-card span {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.right-header p {
+  color: #ffffff;
+}
+
+// footer
 
 footer {
   background-color: black;

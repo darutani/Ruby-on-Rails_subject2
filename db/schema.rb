@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_07_000944) do
+ActiveRecord::Schema.define(version: 2022_12_18_071619) do
+
+  create_table "reserves", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.integer "number_people"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "rooms", force: :cascade do |t|
     t.integer "user_id"
@@ -34,6 +44,9 @@ ActiveRecord::Schema.define(version: 2022_12_07_000944) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "user_name"
+    t.text "introduction"
+    t.string "icon_image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

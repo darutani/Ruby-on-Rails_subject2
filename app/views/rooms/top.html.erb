@@ -1,14 +1,50 @@
-<div class="cover_top">
-  <div class="search_box">
-    <P>Potepan Shareでまだ体験したことのない旅をしよう</p>
-    <p>エリア</P>
+<div class="cover-top d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Potepan Shareでまだ体験したことのない旅をしよう</h5>
+            <%= form_with url: rooms_path, method: :get, local: true, class: "top-form" do |f| %>
+              <%= f.label "エリア", class: "d-block w-100 mb-2" %>
+              <%= f.text_field :search, placeholder: "例：東京", class: "d-block w-100 mb-4 form-control" %>
+              <%= f.submit "探す", class: "btn btn-primary d-block w-100 mb-4" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="container">
-  <h1>おすすめのエリア</h1>
-  <%# <%= link_to  %>
-  <%# <%= link_to  %>
-  <%# <%= link_to  %>
-  <%# <%= link_to  %>
+<div class="reccomend-area">
+  <div class="container">
+    <h4>おすすめのエリア</h4>
+    <div class="row">
+      <div class="col-3">
+        <div class="card search-card">
+          <span>東京</span>
+          <%= link_to image_tag("img_tokyo.jpeg"), "/" %>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card search-card">
+          <span>大阪</span>
+          <%= link_to image_tag("img_osaka.jpeg"), "/" %>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card search-card">
+          <span>京都</span>
+          <%= link_to image_tag("img_kyoto.jpeg"), "/" %>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card search-card">
+          <span>札幌</span>
+          <%= link_to image_tag("img_sapporo.jpeg"), "/" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

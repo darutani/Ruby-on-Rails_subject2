@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
   def index
+    @rooms = Room.all
+    @rooms = @rooms.where('address LIKE ?', "%#{params[:search]}%") if params[:search].present?
   end
 
   def new
