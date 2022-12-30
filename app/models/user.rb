@@ -7,4 +7,10 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :reserves
   has_many :reserve_rooms, through: :reserves, source: :room
+
+  mount_uploader :icon_image, IconImageUploaderUploader
+
+  validates :user_name, presence: true
+  validates :icon_image, :introduction, presence: true, on: :update
+
 end

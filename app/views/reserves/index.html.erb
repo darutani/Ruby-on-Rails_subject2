@@ -1,2 +1,36 @@
-<h1>Reserves#index</h1>
-<p>Find me in app/views/reserves/index.html.erb</p>
+<div class="container">
+
+  <div class="title">
+    <h4>予約済みルーム一覧</h4>
+  </div>
+
+  <div class="reserve-table">
+    <table>
+      <thead>
+        <tr>
+          <th>ルーム画像</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>合計料金</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>予約確定日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reserves.each do |reserve| %>
+          <tr>
+            <td><%= link_to image_tag("#{reserve.room.room_image.url}", size: "240x140"), room_path(reserve.room.id) %></td>
+            <td class="room-name"><%= link_to "#{reserve.room.name}", room_path(reserve.room.id) %></td>
+            <td><%= reserve.room.introduction %></td>
+            <td><%= reserve.total_price %></td>
+            <td><%= reserve.start_date %></td>
+            <td><%= reserve.end_date %></td>
+            <td><%= reserve.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -66,3 +66,5 @@ gem 'hirb-unicode'   # 日本語などマルチバイト文字の出力時の出
 group :development, :test do
   gem 'pry-rails'  # irbの代わりにpryにする
 end
+
+gem 'carrierwave', '~> 2.0'

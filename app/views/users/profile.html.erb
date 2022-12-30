@@ -1,2 +1,61 @@
-<h1>Users#profile</h1>
-<p>Find me in app/views/users/profile.html.erb</p>
+<div class="container-fuild">
+
+  <div class="row d-lg-none">
+    <div class="nav-bar">
+      <ul>
+        <li><%= link_to "アカウント", user_account_path(@user.id) %></li>
+        <li class="active"><%= link_to "プロフィール", user_profile_path(@user.id) %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="nav-list col-lg-2 d-none d-lg-block">
+      <ul>
+        <li><%= link_to "アカウント", user_account_path(@user.id) %></li>
+        <li class="active"><%= link_to "プロフィール", user_profile_path(@user.id) %></li>
+      </ul>
+    </div>
+
+    <div class="room-register-wrapper col-lg-10">
+
+      <%= render "shared/error", obj: @user %>
+
+      <div class="room-register-content">
+        <h5>プロフィール</h5>
+
+        <div class="row">
+          <div class="img-out">
+            <% if current_user.icon_image.blank? %>
+              <%= image_tag "default_icon.jpeg", class: "rounded-circle", size: "60x60" %>
+            <% else %>
+              <%= image_tag "#{@user.icon_image.url}", class: "rounded-circle", size: "60x60" %>
+            <% end %>
+          </div>
+        </div>
+
+        <%= form_with model: @user, url: user_update_path, local: true do |f| %>
+          <div class="row">
+            <%= f.label :icon_image, "アイコン画像", class: "col-md-3 must-label" %><br />
+            <%= f.file_field :icon_image, class: "col-md-9" %>
+          </div>
+
+          <div class="row">
+            <%= f.label :user_name, "名前", class: "col-md-3 must-label" %><br />
+            <%= f.text_field :user_name, class: "col-md-9" %>
+          </div>
+
+          <div class="row">
+            <%= f.label :introduction, "自己紹介", class: "col-md-3 must-label" %><br />
+            <%= f.text_area :introduction, class: "col-md-9", placeholder: "自己紹介を入力" %><br />
+          </div>
+
+          <div class="row">
+            <%= f.submit "更新", class: "btn btn-primary col-2" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+</div>
+

@@ -1,3 +1,81 @@
 // Place all the styles related to the reserves controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+/* index */
+
+.title h4 {
+  padding-bottom: 40px;
+}
+
+.reserve-table {
+  padding-bottom: 30px;
+}
+
+.reserve-table table {
+  border-top: solid 1px #EAEDEF;
+  border-bottom: solid 1px #EAEDEF;
+  min-width: 800px;
+}
+
+.reserve-table table thead {
+  text-align: center;
+}
+
+.reserve-table table thead th {
+  padding: 8px 15px;
+}
+
+.reserve-table th, .reserve-table td {
+  border-bottom: solid 1px #EAEDEF;
+  padding: 10px;
+}
+
+.reserve-table .room-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4B8FE2;
+}
+
+/* new */
+
+.outer {
+  border: solid 1px #EAEDEF;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.outer .title-reserve {
+  border-bottom: solid 1px #EAEDEF;
+}
+
+.reserve-field {
+  border-bottom: solid 1px #EAEDEF;
+}
+
+.reserve-field .form-control {
+  background-color: #E9ECEF;
+}
+
+.reserve-field h6 {
+  margin-bottom: 0;
+}
+
+
+/* show */
+
+.reserve-wrapper {
+  background-color: #F5F8F9;
+}
+
+.reserve-container {
+  max-width: 850px;
+  border: solid 1px #EAEDEF;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+}
+
+.reserve-container .reserve-field {
+  border-bottom: solid 1px #EAEDEF;
+}

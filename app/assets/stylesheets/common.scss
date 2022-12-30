@@ -1,15 +1,41 @@
 // 共通
 
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 180px;
+}
+
 p {
   margin: 0;
 }
 
-li {
-  list-style: none;  
-}
-
 .btn-primary {
   background-color: #4a90e2 !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.field_with_errors {
+  display: contents;
+  input {
+    @extend .is-invalid !optional;
+  }
+}
+
+.error_outer {
+  border: solid 2px red;
+  margin: 0 auto 30px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.error_outer ul {
+  margin-bottom: 0;
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
 
 
@@ -59,10 +85,6 @@ header {
   font-size: 18px;
 }
 
-header input[type="submit"] {
-  display: none;
-}
-
 .right-header p {
   margin-bottom: 0;
 }
@@ -81,6 +103,11 @@ header input[type="submit"] {
   right: 10px;
   padding: 20px 30px;
   margin: 0;
+  z-index: 1000;
+}
+
+.nav-trigger li {
+  list-style: none;
 }
 
 .nav-trigger li + li {
@@ -106,65 +133,28 @@ header input[type="submit"] {
 .alert {
   margin: 0;
   text-align: center;
-  background-color: #ADD8E6;
+  background-color: #F35401;
   color: #ffffff;
 }
 
 
-// top画面
 
-.cover-top {
-  background-image: image-url('cover_top.jpeg');
-  background-size: cover;
-  height: 650px;
-  width: 100%;
-}
-
-.reccomend-area {
-  padding: 40px 0 70px 0;
-}
-
-.reccomend-area h4 {
-  margin-bottom: 40px;
-  font-weight: bold;
-}
-
-.search-card {
-  position: relative;
-}
-
-.search-card span {
-  position: absolute;
-  bottom: 50px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.search-card img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-}
-
-.right-header p {
-  color: #ffffff;
-}
 
 // footer
 
 footer {
   background-color: black;
   width: 100%;
-  height: 200px;
+  position: absolute;
+  bottom: 0;
+  height: 180px;
+  margin-top: 64px;
+  padding-top: 90px;
 }
 
 footer p {
   text-align: center;
   color: #ffffff;
   font-size: 13px;
-  line-height: 200px;
+  line-height: 18px;
 }

@@ -6,11 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery.min.js"></script>
   </head>
 
@@ -18,16 +18,16 @@
     <header>
       <div class="left-header">
         <%= link_to image_tag("logo.png"), "/" %>
-        <%= form_with url: rooms_path, method: :get, local: true, class: "header-form" do |f| %>
+        <%= form_with url: search_rooms_path, method: :get, local: true, class: "header-form" do |f| %>
           <div class="header-search d-none d-lg-inline-block">
-            <%= f.search_field :search, placeholder: "エリア", class: "form-control"  %>
+            <%= f.search_field :search_address, placeholder: "エリア", class: "form-control"  %>
             <i class="fa-solid fa-location-dot"></i>
           </div>
           <div class="header-search d-none d-lg-inline-block">
-            <%= f.text_field :search, placeholder: "キーワード", class: "form-control" %>
+            <%= f.text_field :search_key, placeholder: "キーワード", class: "form-control" %>
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-          <%= f.submit %>  
+          <%= f.submit class: "d-none" %>  
         <% end %>
       </div> 
 
@@ -35,7 +35,11 @@
       <div class="right-header d-flex align-items-center">
         <% if user_signed_in? %>
           <p><%= current_user.user_name %></p>
-          <%= image_tag "#{current_user.icon_image}", class: "rounded-circle nav-image", size: "60x60" %>
+          <% if current_user.icon_image.blank? %>
+            <%= image_tag "default_icon.jpeg", class: "rounded-circle nav-image", size: "60x60" %>
+          <% else %>
+            <%= image_tag "#{current_user.icon_image.url}", class: "rounded-circle nav-image", size: "60x60" %>
+          <% end %>
           <ul class="nav-trigger">
             <li><%= link_to "ルーム登録", new_room_path %></li>
             <li><%= link_to "予約済みルーム一覧", reserves_index_path %></li>
