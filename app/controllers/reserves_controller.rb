@@ -35,7 +35,6 @@ class ReservesController < ApplicationController
   end
 
   def index
-    @rooms = 
     @reserves = Reserve.all
   end
 
