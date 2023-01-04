@@ -21,15 +21,6 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
   def top
   end
 
