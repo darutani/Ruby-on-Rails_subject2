@@ -6,11 +6,73 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
   </head>
 
   <body>
+    <header>
+      <div class="left-header">
+        <%= link_to image_tag("logo.png"), "/" %>
+        <%= form_with url: search_rooms_path, method: :get, local: true, class: "header-form" do |f| %>
+          <div class="header-search d-none d-lg-inline-block">
+            <%= f.search_field :search_address, placeholder: "エリア", class: "form-control"  %>
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="header-search d-none d-lg-inline-block">
+            <%= f.text_field :search_key, placeholder: "キーワード", class: "form-control" %>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <%= f.submit class: "d-none" %>  
+        <% end %>
+      </div> 
+
+      
+      <div class="right-header d-flex align-items-center">
+        <% if user_signed_in? %>
+          <p><%= current_user.user_name %></p>
+          <% if current_user.icon_image.blank? %>
+            <%= image_tag "default_icon.jpeg", class: "rounded-circle nav-image", size: "60x60" %>
+          <% else %>
+            <%= image_tag "#{current_user.icon_image.url}", class: "rounded-circle nav-image", size: "60x60" %>
+          <% end %>
+          <ul class="nav-trigger">
+            <li><%= link_to "ルーム登録", new_room_path %></li>
+            <li><%= link_to "予約済みルーム一覧", reserves_index_path %></li>
+            <li><%= link_to "登録済みルーム一覧", rooms_path %></li>
+            <li><%= link_to "設定", user_account_path(current_user.id) %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary d-block me-3", role: "button" %>
+          <%= link_to "登録する", new_user_registration_path, class: "btn btn-secondary", role: "button" %>
+        <% end %>
+      </div>
+    </header>
+
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
+
+    <footer>
+      <p>© 2020 POTEPAN.INC.</p>
+    </footer>
+
+    <script>
+      $(function() {
+          $(".nav-image").click(function() {
+              $(".nav-trigger").toggleClass("style");
+          });
+      });
+    </script>
   </body>
 </html>
